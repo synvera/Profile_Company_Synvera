@@ -4,379 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upgrade ke Premium</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: white;
-            color: black;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Section */
-        .header {
-            text-align: center;
-            padding: 80px 20px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            width: 300px;
-            height: 300px;
-            background: black;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.05;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 50px;
-            right: 50px;
-            width: 400px;
-            height: 400px;
-            background: black;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.05;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: black;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, black 0%, #333 50%, black 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 50px;
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto 80px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Pricing Toggle */
-        .pricing-toggle {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 60px;
-        }
-
-        .toggle-wrapper {
-            background: #f5f5f5;
-            padding: 6px;
-            border-radius: 50px;
-            display: inline-flex;
-            gap: 4px;
-        }
-
-        .toggle-btn {
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-            color: #666;
-            position: relative;
-        }
-
-        .toggle-btn.active {
-            background: black;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .savings-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: black;
-            color: white;
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-
-        /* Price Display */
-        .price-display {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .price {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .currency {
-            font-size: 3rem;
-            font-weight: 800;
-        }
-
-        .amount {
-            font-size: 4.5rem;
-            font-weight: 800;
-        }
-
-        .period {
-            font-size: 1.5rem;
-            color: #666;
-        }
-
-        .price-note {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* CTA Button */
-        .cta-section {
-            max-width: 600px;
-            margin: 0 auto 80px;
-        }
-
-        .cta-button {
-            width: 100%;
-            background: black;
-            color: white;
-            border: none;
-            padding: 25px;
-            border-radius: 16px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            background: #222;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .guarantee {
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-            margin-top: 20px;
-        }
-
-        /* Features Section */
-        .features {
-            background: linear-gradient(135deg, #f8f8f8 0%, white 100%);
-            border: 2px solid #e5e5e5;
-            border-radius: 24px;
-            padding: 60px 40px;
-            margin-bottom: 80px;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            font-weight: 800;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: white;
-            transform: translateX(5px);
-        }
-
-        .checkmark {
-            width: 24px;
-            height: 24px;
-            background: black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover .checkmark {
-            transform: scale(1.1);
-        }
-
-        .checkmark::after {
-            content: '✓';
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .feature-text {
-            font-weight: 500;
-            color: #333;
-        }
-
-        /* Trust Section */
-        .trust-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 60px;
-            padding: 30px;
-            color: #666;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .divider {
-            color: #ddd;
-            font-size: 1.5rem;
-        }
-
-        /* FAQ */
-        .faq-section {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .faq-link {
-            color: black;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .faq-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Icons */
-        .icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 60px 20px 40px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .stats {
-                gap: 30px;
-            }
-
-            .toggle-btn {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .amount {
-                font-size: 3rem;
-            }
-
-            .features {
-                padding: 40px 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style/langganan.css">
 </head>
 <body>
     <div class="container">
@@ -428,10 +56,10 @@
         <div class="price-display">
             <div class="price">
                 <span class="currency">Rp</span>
-                <span class="amount" id="price-amount">799.000</span>
+                <span class="amount" id="price-amount">1.000.000</span>
                 <span class="period" id="price-period">/tahun</span>
             </div>
-            <p class="price-note" id="price-note">Rp 66.583 per bulan</p>
+            <p class="price-note" id="price-note">Rp 84.000 per bulan</p>
         </div>
 
         <!-- CTA Button -->
@@ -441,10 +69,9 @@
                 Mulai Langganan Premium
                 <span>⚡</span>
             </button>
-            <p class="guarantee">Batalkan kapan saja • Jaminan uang kembali 30 hari</p>
+            <p class="guarantee">Batalkan kapan saja • Jaminan uang kembali 1 hari</p>
         </div>
 
-        <!-- Features -->
         <div class="features">
             <h2>Semua Yang Kamu Dapatkan</h2>
             <div class="features-grid">
@@ -454,11 +81,11 @@
                 </div>
                 <div class="feature-item">
                     <div class="checkmark"></div>
-                    <span class="feature-text">Hapus Semua Iklan</span>
+                    <span class="feature-text">Hapus Semua Kenangan</span>
                 </div>
                 <div class="feature-item">
                     <div class="checkmark"></div>
-                    <span class="feature-text">Download Konten Offline</span>
+                    <span class="feature-text">Download Semua Kenangan</span>
                 </div>
                 <div class="feature-item">
                     <div class="checkmark"></div>
@@ -491,7 +118,6 @@
             </div>
         </div>
 
-        <!-- Trust Badges -->
         <div class="trust-section">
             <div class="trust-item">
                 <span>🔒</span>
@@ -503,55 +129,12 @@
             <div class="trust-item">PCI Compliant</div>
         </div>
 
-        <!-- FAQ -->
         <div class="faq-section">
             <p style="color: #666; margin-bottom: 15px;">Ga punya uang?</p>
             <a href="index.html" class="faq-link">Yaudah balik sana</a>
         </div>
     </div>
 
-    <script>
-        // Pricing data
-        const plans = {
-            monthly: {
-                amount: '99.000',
-                period: '/bulan',
-                note: 'Rp 99.000 per bulan'
-            },
-            yearly: {
-                amount: '799.000',
-                period: '/tahun',
-                note: 'Rp 66.583 per bulan'
-            }
-        };
-
-        // Get elements
-        const toggleButtons = document.querySelectorAll('.toggle-btn');
-        const priceAmount = document.getElementById('price-amount');
-        const pricePeriod = document.getElementById('price-period');
-        const priceNote = document.getElementById('price-note');
-
-        // Toggle functionality
-        toggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                toggleButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                // Update price display
-                const plan = button.dataset.plan;
-                priceAmount.textContent = plans[plan].amount;
-                pricePeriod.textContent = plans[plan].period;
-                priceNote.textContent = plans[plan].note;
-            });
-        });
-
-        // CTA Button click
-        document.querySelector('.cta-button').addEventListener('click', () => {
-            alert('Terima kasih! Fitur pembayaran akan segera tersedia.');
-        });
-    </script>
+    <script src="script/langganan.js"></script>
 </body>
 </html>

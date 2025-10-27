@@ -1,5 +1,4 @@
-        @import url('https://fonts.googleapis.com/css2?family=Knewave&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Story+Script&display=swap');
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -7,276 +6,270 @@
 
         body {
             background-color: #f5f5f5;
+            overflow-x: hidden;
         }
 
+        /* Navigation */
         nav {
             background-color: white;
             padding: 1rem 2rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            text-align: center;
             font-family: "Story Script", sans-serif;
-            font-weight: 400;
-            font-style: normal;
             font-size: 1.5rem;
             font-weight: 600;
             color: black;
-            z-index: 1001;
         }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: black;
-            text-decoration: none;
-            font-weight: 400;
-            transition: opacity 0.3s;
-        }
-
-        .nav-menu a:hover {
-            opacity: 0.7;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: black;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
+        /* Hero Section */
         .content1 {
-            max-width: 1200px;
-            margin: 20% 180px 20% 180px;
-            padding: 0 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 2rem 2rem;
         }
 
         .content1 h1 {
             font-family: "Poppins", sans-serif;
             font-weight: 600;
-            font-style: normal;
             color: #030303;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
         }
 
         .content1 p {
             font-family: "Roboto Slab", serif;
-            font-optical-sizing: auto;
             font-weight: 350;
-            font-style: normal;
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 9px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
         }
 
-        #button{    
+        #button {    
             font-family: "Poppins", sans-serif;
             font-weight: 500;
-            font-style: normal;
-            width: 100px;
-            height: 35px;
+            padding: 0.5rem 2rem;
             border-radius: 10px;
             border: 0.5px solid white;
             background-color: #B7B89F;
-            font-size: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        #button:hover{
-            background-color: white;
-            color: white;
+        #button:hover {
+            background-color: #9a9b84;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        #button:active{
-            background-color: #666;
-            color: #666;
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .about h1{
+        .about h1 {
             text-align: center;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
-            font-style: normal;
-            margin: 20% 50px 0 180px ;
+            color: #030303;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+        }
+
+        .about > p {
+            text-align: center;
+            font-family: "Roboto Slab", serif;
+            font-weight: 350;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .dua {
+            margin-top: 4rem;
+        }
+
+        .dua h2, .dua h3 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            color: black;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .dua h2 {
+            text-align: left;
+        }
+
+        .dua h3 {
+            text-align: right;
+            margin-top: 3rem;
+        }
+
+        .dua p, .para {
+            font-family: "Roboto Slab", serif;
+            font-weight: 350;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .dua p {
+            text-align: left;
+        }
+
+        .para {
+            text-align: right;
+        }
+
+        /* Services Section */
+        .content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content h1 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
             color: #030303;
         }
 
-        .about p{
-            text-align: center;
+        .content .card {
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .list-group-item {
+            padding: 1.2rem;
+            border-color: #e0e0e0;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .list-group-item span {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Portfolio Section */
+        .porto {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .porto h1 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: #030303;
+        }
+
+        .portocard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .portocard .card {
+            width: 100%;
+            max-width: 18rem;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portocard .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .portocard .card-img-top {
+            height: 200px;
+            background-color: #e0e0e0;
+            object-fit: cover;
+        }
+
+        .portocard .card-text {
             font-family: "Roboto Slab", serif;
-            font-optical-sizing: auto;
-            font-weight: 350;
-            font-style: normal;
-            margin: 5px 50px 0 180px ;
+            font-size: 0.95rem;
+            color: #666;
         }
 
-        .dua{
-            margin-top: 100px;
-        }
-
-        .dua h2{
-            text-align: left;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            color: black;
-            font-size: 20px;
-            margin-left: 180px;
-        }
-
-        .dua p{
-            margin-left: 180px;
-            font-family: "Roboto Slab", serif;
-            font-optical-sizing: auto;
-            font-weight: 350;
-            font-style: normal;
-        }
-
-        .dua h3{
-            margin-right: 180px;
-            text-align: right;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            color: black;
-            font-size: 20px;
-        }
-
-        .para{
-            margin-right: 180px;
-            text-align: right;
-            font-family: "Roboto Slab", serif;
-            font-optical-sizing: auto;
-            font-weight: 350;
-            font-style: normal;
-        }
-
-        .content{
-            margin: 200px 180px 0 180px;
-        }
-
-        .content h1{
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 25px;
-            margin-bottom: 50px;
-        }
-
-        .list-group-item span{
-            margin-left: 50px;
-            font-size: 15px;
-        }
-
-        .porto h1{
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 25px;
-            margin-top: 200px;
-            margin-bottom: 50px;
-            margin-left: 180px;
-        }
-
-        .portocard{
-            margin-left: 180px;
-            display: flex;
-        }
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
-            .hamburger {
-                display: flex;
+            nav {
+                padding: 1rem;
             }
 
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 0;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                height: 100vh;
-                text-align: center;
-                transition: 0.3s;
-                padding-top: 80px;
-                gap: 0;
-                z-index: 1000;
+            .content1 {
+                padding: 120px 1rem 2rem;
+                min-height: 80vh;
             }
 
-            .nav-menu.active {
-                left: 0;
+            .about, .content, .porto {
+                padding: 3rem 1rem;
             }
 
-            .nav-menu li {
-                padding: 1.5rem 0;
+            .dua h3 {
+                text-align: left;
+                margin-top: 3rem;
             }
 
-            .nav-menu a {
-                font-size: 1.2rem;
-            }
-
-            .content1{
-                margin: 35% 50px 10% 50px;
-            }
-
-            .about{
-                margin-top: 50%;
-            }
-            .about h1{
-                margin-left: 10%;
-            }
-
-            .about p{
-                margin-left: 10%;
-            }
-
-
-            .dua h2{
-                margin-left: 50px;
-            }
-
-            .dua p{
+            .para {
                 text-align: left;
             }
 
-            .dua h3{
-                margin-top: 125px;
-                margin-right: 50px;
+            .list-group-item {
+                font-size: 0.9rem;
+                padding: 1rem;
             }
 
-            .para{
-                margin-right: 50px;
-                margin-left: 50px;
+            .list-group-item span {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .portocard {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .content1 h1 {
+                font-size: 1.8rem;
+            }
+
+            .about h1, .content h1, .porto h1 {
+                font-size: 1.5rem;
+            }
+
+            .dua h2, .dua h3 {
+                font-size: 1.2rem;
             }
         }
